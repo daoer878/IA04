@@ -1,0 +1,22 @@
+INDEX VERSION 1.126+C:\Users\Alice\Downloads\HelloWorld (1)\.metadata\.plugins\org.eclipse.jdt.core
+3065916431.index
+1697886153.index
+1498219845.index
+3133528496.index
+495670881.index
+1115467115.index
+3108472368.index
+4041092966.index
+1995173708.index
+3835459672.index
+4108727661.index
+30765161.index
+3974580528.index
+4155206848.index
+163172794.index
+1818563445.index
+2060885564.index
+305854171.index
+573543369.index
+4173023868.index
+2380175872.index

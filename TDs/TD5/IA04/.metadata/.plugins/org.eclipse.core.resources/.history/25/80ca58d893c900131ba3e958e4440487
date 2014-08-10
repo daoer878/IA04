@@ -1,0 +1,6 @@
+main=false
+gui=false
+container-name = SparQL
+host = 127.0.0.1
+local-port = 2314
+port=2314

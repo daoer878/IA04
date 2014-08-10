@@ -1,0 +1,6 @@
+main=false
+gui=false
+container-name = Factorielle
+host = 192.168.1.40
+local-port = 2320
+port=2320

@@ -1,0 +1,6 @@
+main=false
+gui=false
+container-name = Factorielle
+host = 172.25.27.247
+local-port = 2310
+port=2310

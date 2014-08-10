@@ -1,0 +1,6 @@
+main=false
+gui=false
+container-name = Hello
+host = 192.168.1.40
+local-port = 2319
+port=2319

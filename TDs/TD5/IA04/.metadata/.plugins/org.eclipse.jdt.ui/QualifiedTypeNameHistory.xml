@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="jade.gui.GuiAgent"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="java.beans.PropertyChangeListener"/>
+<fullyQualifiedTypeName name="jade.gui.GuiEvent"/>
+<fullyQualifiedTypeName name="java.beans.PropertyChangeSupport"/>
+<fullyQualifiedTypeName name="jade.domain.introspection.ACLMessage"/>
+<fullyQualifiedTypeName name="javax.swing.JTextArea"/>
+<fullyQualifiedTypeName name="javax.swing.JTextField"/>
+<fullyQualifiedTypeName name="java.awt.Dimension"/>
+<fullyQualifiedTypeName name="javax.swing.BorderFactory"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="javax.swing.JButton"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="jade.core.behaviours.ParallelBehaviour"/>
+<fullyQualifiedTypeName name="jade.core.behaviours.WakerBehaviour"/>
+<fullyQualifiedTypeName name="jade.core.behaviours.Behaviour"/>
+<fullyQualifiedTypeName name="jade.core.behaviours.TickerBehaviour"/>
+<fullyQualifiedTypeName name="jade.core.behaviours.SequentialBehaviour"/>
+<fullyQualifiedTypeName name="jade.core.behaviours.OneShotBehaviour"/>
+<fullyQualifiedTypeName name="jade.core.AID"/>
+<fullyQualifiedTypeName name="jade.core.behaviours.CyclicBehaviour"/>
+<fullyQualifiedTypeName name="java.util.Vector"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="jade.core.Agent"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="jade.lang.acl.ACLMessage"/>
+</qualifiedTypeNameHistroy>

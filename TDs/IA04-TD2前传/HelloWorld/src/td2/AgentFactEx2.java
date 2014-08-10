@@ -1,0 +1,183 @@
+package td2;
+
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import jade.core.AID;
+import jade.core.Agent;
+import jade.core.behaviours.Behaviour;
+import jade.lang.acl.ACLMessage;
+
+@SuppressWarnings("serial")
+public class AgentFactEx2 extends Agent {
+	protected void setup() {
+		this.addBehaviour(new FactBehaviour());	
+	}
+	
+	public class FactBehaviour extends Behaviour {
+		private long result;
+		@Override
+		public void action() {
+			ACLMessage message = myAgent.receive();
+			
+			if(message != null && message.getPerformative() == ACLMessage.REQUEST)
+			{
+				String str = message.getContent();
+				ObjectMapper mapper = new ObjectMapper();
+				
+				try {
+					Map<String, Object> map = mapper.readValue(str, Map.class);
+					Map<String, Object> replyMap = new HashMap<String, Object>();
+					
+					if(map.containsKey("action"))
+					{
+						String dbg = (String)map.get("action");
+						String dbg2 = "fact";
+						if(dbg.equals(dbg2))
+						{
+							if(map.containsKey("args")) {
+								String args = (String) map.get("args");
+								
+								long a = Long.parseLong(args);
+								
+								ACLMessage reply = message.createReply();
+								
+								
+								if (a >= 0 && a <= 2)
+								{
+									reply.setPerformative(ACLMessage.INFORM);
+									
+									if(a == 2)
+										
+										replyMap.put("result", 2);
+									else
+										replyMap.put("result", 1);
+									replyMap.put("action", "INFORMfact");	
+									StringWriter sw = new StringWriter();
+									mapper.writeValue(sw, replyMap);									
+									reply.setContent(sw.toString());
+								}
+								else if (a < 0)
+								{
+									reply.setPerformative(ACLMessage.FAILURE);
+									replyMap.put("error_description", "Requet eronne");
+									
+									StringWriter sw = new StringWriter();
+									mapper.writeValue(sw, replyMap);									
+									reply.setContent(sw.toString());
+								}
+								else
+								{
+									 result = a;
+									/*
+									ACLMessage request = new ACLMessage();
+									request.setPerformative(ACLMessage.REQUEST);
+
+									request.addReceiver(new AID("M1", AID.ISLOCALNAME));
+									request.addReceiver(new AID("M2", AID.ISLOCALNAME));
+									*/
+									
+									for(long i = a - 1; i >= 2; i--)
+									{
+										ACLMessage request = new ACLMessage();
+										request.setPerformative(ACLMessage.REQUEST);
+										//request.clearAllReceiver();
+										String indexM= "M"+String.valueOf((int)(1+Math.random()*2));
+										System.out.print(indexM);
+										
+										request.addReceiver(new AID(indexM, AID.ISLOCALNAME));
+										//String requete = String.valueOf(result) + "x" + String.valueOf(i);
+										String requete = "";
+										Map<String, Object> multMap = new HashMap<String, Object>();
+										
+										multMap.put("action", "mult");
+										multMap.put("args", String.valueOf(result) + "," + String.valueOf(i));
+										
+										StringWriter sw = new StringWriter();
+										mapper.writeValue(sw, multMap);
+										requete = sw.toString();
+										
+										request.setContent(requete);
+										myAgent.send(request);
+										ACLMessage answer = myAgent.blockingReceive();
+										
+										if(answer != null)
+										{
+											if(answer.getPerformative() == ACLMessage.FAILURE)
+											{
+												reply.setPerformative(ACLMessage.FAILURE);
+												reply.setContent("Echec lors du traitement");
+												break;
+											}
+											else if(answer.getPerformative() == ACLMessage.INFORM)
+											{
+												String jsonResult = answer.getContent();
+												//result = Long.parseLong(answer.getContent());
+												Map<String, Object> answerMap = mapper.readValue(jsonResult, Map.class);
+												
+												if(answerMap.containsKey("action"))
+												{
+													if(answerMap.get("action").equals("INFORMmult"))
+													{
+														if(answerMap.containsKey("value"))
+														{
+															String valeur = (String)answerMap.get("value");
+															result = Long.parseLong(valeur);
+														}
+													}
+												}
+											}
+										}
+										else
+										{
+											System.out.println("Reponse nulle");
+										}
+									}
+									
+									//Map<String, Objectreply> replyMap = new HashMap<String, Object>();
+									
+									replyMap.put("action", "INFORMfact");
+									replyMap.put("value", result);
+									
+									StringWriter sw = new StringWriter();
+									mapper.writeValue(sw, replyMap);
+									
+									reply.setContent(sw.toString());
+								}
+								
+								try{
+								    Thread.currentThread().sleep(10000);
+								    myAgent.send(reply);
+								}catch(InterruptedException ie){
+								    ie.printStackTrace();
+								}
+								
+							}
+						}
+						else
+						{
+							throw new Exception("Action incorrecte");
+						}
+					}
+					else {
+						throw new Exception("Message incorrect : il manque l'action");
+					}
+				} 
+				catch(Exception ex) {
+					
+				}
+			}
+		}
+
+		@Override
+		public boolean done() {
+
+			return false;
+		}
+		
+	}
+}

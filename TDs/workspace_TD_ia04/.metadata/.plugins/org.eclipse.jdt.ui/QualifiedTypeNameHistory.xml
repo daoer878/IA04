@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="jade.core.Profile"/>
+<fullyQualifiedTypeName name="jade.wrapper.ContainerController"/>
+<fullyQualifiedTypeName name="jade.wrapper.AgentController"/>
+<fullyQualifiedTypeName name="jade.core.ProfileImpl"/>
+<fullyQualifiedTypeName name="tp1.HelloWorld"/>
+<fullyQualifiedTypeName name="jade.core.Agent"/>
+<fullyQualifiedTypeName name="jade.core.behaviours.Behaviour"/>
+<fullyQualifiedTypeName name="jade.lang.acl.ACLMessage"/>
+<fullyQualifiedTypeName name="jade.core.AID"/>
+</qualifiedTypeNameHistroy>

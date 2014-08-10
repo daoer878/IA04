@@ -1,0 +1,43 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wot:     <http://xmlns.com/wot/0.1/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix vs:      <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix lgd: 	<http://linkedgeodata.org/>
+@prefix lgdo:	<http://linkedgeodata.org/ontology/>
+@prefix geo:	<http://linkedgeodata.org/triplify/>
+@prefix td5:	 <http://td5#> .
+
+td5:jeanGameAccount rdf:type foaf:OnlineGameAccount.
+td5:paulGameAccount rdf:type foaf:OnlineGameAccount.
+td5:michelGameAccount rdf:type foaf:OnlineGameAccount.
+
+geo:node1363947712 a lgdo:Country.
+
+td5:jean rdf:type foaf:Person;
+	foaf:topic_interest td5:jeanGameAccount;
+	foaf:topic_interest geo:node1363947712;
+	foaf:name "Jean Dupont".
+	
+td5:paul rdf:type foaf:Person;
+	foaf:knows td5:paul2;
+	foaf:knows td5:michel;
+	foaf:topic_interest td5:paulGameAccount;
+	foaf:topic_interest geo:node1363947712;
+	foaf:name "Paul Dupond".
+	
+td5:pierre rdf:type foaf:Person;
+	foaf:topic_interest geo:node1363947712.
+
+td5:michel rdf:type foaf:Person;
+	foaf:knows td5:pierre;
+	foaf:topic_interest td5:michelGameAccount;
+	foaf:topic_interest geo:node1363947712.
+	
+td5:paul2 rdf:type foaf:Person;
+	foaf:topic_interest geo:node1363947712.
+
+
+
